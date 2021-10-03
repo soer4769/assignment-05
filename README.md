@@ -1,68 +1,79 @@
-# Assignment #5
+# Assignment #7
 
-## C&#35;
+## C#: Gilded Rose Refactoring Kata
 
-Clone this repository and bring the code pieces you need into your BDSA Assignments GitHub repository.
+Hi and welcome to team Gilded Rose. As you know, we are a small inn with a
+prime location in a prominent city ran by a friendly innkeeper named
+Allison. We also buy and sell only the finest goods. Unfortunately, our
+goods are constantly degrading in quality as they approach their sell by
+date. We have a system in place that updates our inventory for us. It was
+developed by a no-nonsense type named Leeroy, who has moved on to new
+adventures. Your task is to add the new feature to our system so that we
+can begin selling a new category of items. First an introduction to our
+system:
 
-### Kanban Board part deux
+- All items have a SellIn value which denotes the number of days we have
+to sell the item
+- All items have a Quality value which denotes how valuable the item is
+- At the end of each day our system lowers both values for every item
 
-[![Simple-kanban-board-](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Simple-kanban-board-.jpg/512px-Simple-kanban-board-.jpg)](https://commons.wikimedia.org/wiki/File:Simple-kanban-board-.jpg "Jeff.lasovski [CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons")
+Pretty simple, right? Well this is where it gets interesting:
 
-Implement and test the `ITaskRepository` and `ITagRepository` interfaces.
+- Once the sell by date has passed, Quality degrades twice as fast
+- The Quality of an item is never negative
+- "Aged Brie" actually increases in Quality the older it gets
+- The Quality of an item is never more than 50
+- "Sulfuras", being a legendary item, never has to be sold or decreases
+in Quality
+- "Backstage passes", like aged brie, increases in Quality as it's SellIn
+value approaches; Quality increases by 2 when there are 10 days or less
+and by 3 when there are 5 days or less but Quality drops to 0 after the
+concert
 
-```csharp
-public enum Response
-{
-    Created,
-    Updated,
-    Deleted,
-    NotFound,
-    BadRequest,
-    Conflict
-}
+We have recently signed a supplier of conjured items. This requires an
+update to our system:
 
-public interface ITaskRepository
-{
-    (Response response, int taskId) Create(TaskCreateDTO task);
-    IReadOnlyCollection<TaskListDTO> Read(bool includeRemoved = false);
-    TaskDetailsDTO Read(int taskId);
-    Response Update(TaskUpdateDTO task);
-    Response Delete(int taskId);
-}
+- "Conjured" items degrade in Quality twice as fast as normal items
 
-public interface ITagRepository
-{
-    (Response response, int taskId) Create(TagCreateDTO tag);
-    ICollection<TagDTO> Read();
-    TagDTO Read(int tagId);
-    Response Update(TagUpdateDTO tag);
-    Response Delete(int tagId, bool force = false);
-}
+Feel free to make any changes to the UpdateQuality method and add any
+new code as long as everything still works correctly. However, do not
+alter the Item class or Items property as those belong to the goblin
+in the corner who will insta-rage and one-shot you as he doesn't
+believe in shared code ownership (you can make the UpdateQuality
+method and Items property static if you like, we'll cover for you).
+
+Just for clarification, an item can never have its Quality increase
+above 50, however "Sulfuras" is a legendary item and as such its
+Quality is 80 and it never alters.
+
+### Exercise
+
+Fork the repository and implement the "Conjured" use case.
+
+You should start by writing a set of tests which prove that the original program works to specification.
+
+Then refactor the code to support "Conjured".
+
+You might want to consider extracting to smaller methods and afterwards implementing small classes using polymorphism.
+
+*The rule about not altering things due to the goblin in the corner may be tweaked if you can defend it...*
+
+### Code Coverage
+
+To calculate code coverage on this project using Coverlet you can run:
+
+```bash
+dotnet test /p:CollectCoverage=true
 ```
 
-with the following rules:
+*Aim for 95-100% code coverage before you start refactoring!*
 
-#### 1. General
+### Notes
 
-1. Trying to update or delete a non-existing entity should return `NotFound`.
-1. `CUD` should return a proper `Response`.
-1. Your are not allowed to write `throw new ...` - use the `Response` instead.
-1. Your code must use an in-memory database and/or mocks for testing.
-1. If a task or tag is not found, return `null`.
+Who: [@TerryHughes](https://twitter.com/TerryHughes), [@NotMyself](https://twitter.com/NotMyself)
 
-#### 2. Task Repository
+What & Why: [Refactor This: The Gilded Rose Kata](http://iamnotmyself.com/2011/02/13/refactor-this-the-gilded-rose-kata/)
 
-1. Only tasks which have the state `New` can be deleted from the database.
-1. Deleting a task which is `Active` should set its state to `Removed`.
-1. Deleting a task which is `Resolved`, `Closed`, or `Removed` should return `Conflict`.
-1. Creating a task will set its state to `New`.
-1. Create/update task must allow for editing tags.
-1. Assigning a user which does not exist should return `Conflict`.
-1. TaskRepository may *not* reference *TagRepository*.
-1. Create/update should allow adding/removing a user - and return `BadRequest` if the user does not exist.
+This work is by [@TerryHughes](https://twitter.com/TerryHughes), [@NotMyself](https://twitter.com/NotMyself)
 
-#### 3. Tag Repository
-
-1. Tags which are in use may only be deleted using the `force`.
-1. Trying to delete a tag in use without the `force` should return `Conflict`.
-1. Trying to create a tag which exists already should return `Conflict`.
+The repository can be found at [https://github.com/NotMyself/GildedRose](https://github.com/NotMyself/GildedRose)

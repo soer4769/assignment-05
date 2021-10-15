@@ -81,3 +81,9 @@ The repository can be found at [https://github.com/NotMyself/GildedRose](https:/
 ## Bonus Exercise
 
 Rewrite your repository implementations from Assignment 4 to use `async` and `await`.
+
+
+## SE
+
+### Exercise 1
+Research the following concept and provide a definition for each of them: inheritance, polymorphism, encapsulation.

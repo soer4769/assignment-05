@@ -1,4 +1,4 @@
-# Assignment #7
+# Assignment #5
 
 ## C#: Gilded Rose Refactoring Kata
 

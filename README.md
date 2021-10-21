@@ -1,4 +1,4 @@
-# Assignment #7
+# Assignment #5
 
 ## C#: Gilded Rose Refactoring Kata
 
@@ -81,3 +81,8 @@ The repository can be found at [https://github.com/NotMyself/GildedRose](https:/
 ## Bonus Exercise
 
 Rewrite your repository implementations from Assignment 4 to use `async` and `await`.
+
+
+## SE
+
+none this week

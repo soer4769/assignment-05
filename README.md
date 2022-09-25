@@ -1,6 +1,6 @@
 # Assignment #5
 
-## C#: Gilded Rose Refactoring Kata
+## C♯: Gilded Rose Refactoring Kata
 
 Hi and welcome to team Gilded Rose. As you know, we are a small inn with a
 prime location in a prominent city ran by a friendly innkeeper named
@@ -80,8 +80,7 @@ The repository can be found at [https://github.com/NotMyself/GildedRose](https:/
 
 ## Bonus Exercise
 
-Rewrite your repository implementations from Assignment 4 to use `async` and `await`.
-
+Rewrite your repository implementations from Assignment #4 to use `async` and `await`.
 
 ## SE
 

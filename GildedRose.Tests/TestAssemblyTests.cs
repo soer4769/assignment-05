@@ -1,13 +1,10 @@
-﻿using Xunit;
+﻿namespace GildedRose.Tests;
 
-namespace GildedRose.Tests
+public class TestAssemblyTests
 {
-    public class TestAssemblyTests
+    [Fact]
+    public void TestTheTruth()
     {
-        [Fact]
-        public void TestTheTruth()
-        {
-            Assert.True(true);
-        }
+        true.Should().BeTrue();
     }
 }

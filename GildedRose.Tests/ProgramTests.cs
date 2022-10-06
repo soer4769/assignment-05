@@ -1,6 +1,6 @@
-﻿namespace GildedRose.Tests;
+namespace GildedRose.Tests;
 
-public class TestAssemblyTests
+public class ProgramTests
 {
     [Fact]
     public void TestTheTruth()

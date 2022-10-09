@@ -20,66 +20,130 @@ public class ProgramTests
 
     [Fact]
     public void QualityDecreasesBy2WhileSellinNegative() {
-        throw new NotImplementedException();
+        //Arrange
+        _items.Add(new Item{ Name = "Test Item", SellIn = -2, Quality = 20 });
+        //Act
+        Program.UpdateQuality(_items);
+        //Assert
+        _items.ElementAt(0).Quality.Should().Be(18);
     }
 
     [Fact]
     public void BrieQualityIncreasesBy1WhileSellinPositive() {
-        throw new NotImplementedException();
-    }
+        //Arrange
+        _items.Add(new Item{ Name = "Aged Brie", SellIn = 10, Quality = 20 });
+        //Act
+        Program.UpdateQuality(_items);
+        //Assert
+        _items.ElementAt(0).Quality.Should().Be(21);
+        }
 
     [Fact]
     public void BrieQualityIncreasesBy2WhileSellinNegative() {
-        throw new NotImplementedException();
-    }
+        //Arrange
+        _items.Add(new Item{ Name = "Aged Brie", SellIn = -10, Quality = 20 });
+        //Act
+        Program.UpdateQuality(_items);
+        //Assert
+        _items.ElementAt(0).Quality.Should().Be(22);
+        }
 
     [Fact]
     public void BrieQuality50UpdateShouldNotIncreaseQuality() {
-        throw new NotImplementedException();
-    }
+        //Arrange
+        _items.Add(new Item{ Name = "Aged Brie", SellIn = 10, Quality = 50 });
+        //Act
+        Program.UpdateQuality(_items);
+        //Assert
+        _items.ElementAt(0).Quality.Should().Be(50);    }
 
     [Fact]
     public void BackstagePassIncreasesBy1WhileSellinBiggerThan10() {
-        throw new NotImplementedException();
-    }
+        //Arrange
+        _items.Add(new Item{ Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 15, Quality = 20 });
+        //Act
+        Program.UpdateQuality(_items);
+        //Assert
+        _items.ElementAt(0).Quality.Should().Be(21);
+        }
 
     [Fact]
     public void BackstagePassIncreasesBy2WhileSellinBetween10And5() {
-        throw new NotImplementedException();
+        //Arrange
+        _items.Add(new Item{ Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 8, Quality = 20 });
+        //Act
+        Program.UpdateQuality(_items);
+        //Assert
+        _items.ElementAt(0).Quality.Should().Be(22);
     }
 
     [Fact]
     public void BackstagePassIncreasesBy3WhileSellinSmallerThan5() {
-        throw new NotImplementedException();
+        //Arrange
+        _items.Add(new Item{ Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 3, Quality = 20 });
+        //Act
+        Program.UpdateQuality(_items);
+        //Assert
+        _items.ElementAt(0).Quality.Should().Be(23);
     }
 
     [Fact]
     public void BackstagePassDropsTo0WhileSellinNegative() {
-        throw new NotImplementedException();
+        //Arrange
+        _items.Add(new Item{ Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = -1, Quality = 20 });
+        //Act
+        Program.UpdateQuality(_items);
+        //Assert
+        _items.ElementAt(0).Quality.Should().Be(0);
     }
 
     [Fact]
     public void BackstagePassQuality50UpdateShouldNotIncreaseQuality() {
-        throw new NotImplementedException();
+        //Arrange
+        _items.Add(new Item{ Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 3, Quality = 50 });
+        //Act
+        Program.UpdateQuality(_items);
+        //Assert
+        _items.ElementAt(0).Quality.Should().Be(50);
     }
 
     [Fact]
     public void SulfurasQualityStaysAt80() {
-        throw new NotImplementedException();
+        //Arrange
+        _items.Add(new Item{ Name = "Sulfuras, Hand of Ragnaros", SellIn = 15, Quality = 80 });
+        //Act
+        Program.UpdateQuality(_items);
+        //Assert
+        _items.ElementAt(0).Quality.Should().Be(80);
     }
 
     [Fact]
     public void SulfurasSellinDoesNotChange() {
-        throw new NotImplementedException();
+        //Arrange
+        _items.Add(new Item{ Name = "Sulfuras, Hand of Ragnaros", SellIn = 15, Quality = 80 });
+        //Act
+        Program.UpdateQuality(_items);
+        //Assert
+        _items.ElementAt(0).SellIn.Should().Be(15);
     }
 
     [Fact]
     public void ConjuredDecreasesBy2WhileSellinPositive() {
-        throw new NotImplementedException();
+        //Arrange
+        _items.Add(new Item{ Name = "Conjured Mana Cake", SellIn = 15, Quality = 20 });
+        //Act
+        Program.UpdateQuality(_items);
+        //Assert
+        _items.ElementAt(0).Quality.Should().Be(18);
     }
 
     [Fact]
     public void ConjuredDecreasesBy4WhileSellinNegative() {
-        throw new NotImplementedException();
+        //Arrange
+        _items.Add(new Item{ Name = "Conjured Mana Cake", SellIn = -2, Quality = 20 });
+        //Act
+        Program.UpdateQuality(_items);
+        //Assert
+        _items.ElementAt(0).Quality.Should().Be(16);
     }
 }

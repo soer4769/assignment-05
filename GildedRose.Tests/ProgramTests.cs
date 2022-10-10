@@ -63,37 +63,79 @@ public class ProgramTests
     [Fact]
     public void BrieQuality50UpdateShouldNotIncreaseQuality() 
     {
-        throw new NotImplementedException();
+         // Arrange
+        _items.Add(new Item{ Name = "Aged Brie", SellIn = 10, Quality = 50 });
+
+        // Act
+        Program.UpdateQuality(_items);
+
+        // Assert
+        _items.ElementAt(0).Quality.Should().Be(50);
     }
 
     [Fact]
     public void BackstagePassIncreasesBy1WhileSellinBiggerThan10() 
     {
-        throw new NotImplementedException();
+         // Arrange
+        _items.Add(new Item{ Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 11, Quality = 20 });
+
+        // Act
+        Program.UpdateQuality(_items);
+
+        // Assert
+        _items.ElementAt(0).Quality.Should().Be(21);
     }
 
     [Fact]
     public void BackstagePassIncreasesBy2WhileSellinBetween10And5() 
     {
-        throw new NotImplementedException();
+           // Arrange
+        _items.Add(new Item{ Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 6, Quality = 20 });
+
+        // Act
+        Program.UpdateQuality(_items);
+
+        // Assert
+        _items.ElementAt(0).Quality.Should().Be(22);
     }
 
     [Fact]
     public void BackstagePassIncreasesBy3WhileSellinSmallerThan5() 
     {
-        throw new NotImplementedException();
+           // Arrange
+        _items.Add(new Item{ Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 2, Quality = 20 });
+
+        // Act
+        Program.UpdateQuality(_items);
+
+        // Assert
+        _items.ElementAt(0).Quality.Should().Be(23);
     }
 
     [Fact]
     public void BackstagePassDropsTo0WhileSellinNegative() 
     {
-        throw new NotImplementedException();
+           // Arrange
+        _items.Add(new Item{ Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 20 });
+
+        // Act
+        Program.UpdateQuality(_items);
+
+        // Assert
+        _items.ElementAt(0).Quality.Should().Be(0);
     }
 
     [Fact]
     public void BackstagePassQuality50UpdateShouldNotIncreaseQuality() 
     {
-        throw new NotImplementedException();
+           // Arrange
+        _items.Add(new Item{ Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 10, Quality = 50 });
+
+        // Act
+        Program.UpdateQuality(_items);
+
+        // Assert
+        _items.ElementAt(0).Quality.Should().Be(50);
     }
 
     [Fact]

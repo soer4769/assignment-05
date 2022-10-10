@@ -99,13 +99,27 @@ public class ProgramTests
     [Fact]
     public void SulfurasQualityStaysAt80() 
     {
-        throw new NotImplementedException();
+        // Arrange
+        _items.Add(new Item{ Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 80 });
+
+        // Act
+        Program.UpdateQuality(_items);
+
+        // Assert
+        _items.ElementAt(0).Quality.Should().Be(80);
     }
 
     [Fact]
     public void SulfurasSellinDoesNotChange() 
     {
-        throw new NotImplementedException();
+        // Arrange
+        _items.Add(new Item{ Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 80 });
+
+        // Act
+        Program.UpdateQuality(_items);
+
+        // Assert
+        _items.ElementAt(0).SellIn.Should().Be(10);
     }
 
     [Fact]

@@ -9,22 +9,24 @@ public class ProgramTests
     }
 
     [Fact]
-    public void QualityDecreasesBy1WhileSellinPositive() {
-        //Arrange
+    public void QualityDecreasesBy1WhileSellinPositive() 
+    {
+        // Arrange
         _items.Add(new Item{ Name = "Test Item", SellIn = 10, Quality = 20 });
-        //Act
+        // Act
         Program.UpdateQuality(_items);
-        //Assert
+        // Assert
         _items.ElementAt(0).Quality.Should().Be(19);
     }
 
     [Fact]
-    public void QualityDecreasesBy2WhileSellinNegative() {
-        //Arrange
-        _items.Add(new Item{ Name = "Test Item", SellIn = -2, Quality = 20 });
-        //Act
+    public void QualityDecreasesBy2WhileSellinNegative() 
+    {
+        // Arrange
+        _items.Add(new Item{ Name = "Test Item", SellIn = -10, Quality = 20 });
+        // Act
         Program.UpdateQuality(_items);
-        //Assert
+        // Assert
         _items.ElementAt(0).Quality.Should().Be(18);
     }
 

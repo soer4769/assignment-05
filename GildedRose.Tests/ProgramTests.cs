@@ -27,7 +27,8 @@ public class ProgramTests
     public void MainMethodShouldPrint()
     {
         // Arrange
-        string MainOut = File.ReadAllText(Environment.CurrentDirectory + @"\WriteText.txt");
+        string FilePath = System.IO.Path.GetFullPath(Environment.CurrentDirectory + @"..\..\..\..\WriteText.txt");
+        string MainOut  = File.ReadAllText(FilePath);
         StringWriter sw = new StringWriter();
 
         // Act

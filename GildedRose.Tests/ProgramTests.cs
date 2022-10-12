@@ -28,7 +28,7 @@ public class ProgramTests
     {
         // Arrange
         string FilePath = System.IO.Path.GetFullPath(Environment.CurrentDirectory + @"..\..\..\..\WriteText.txt");
-        string MainOut  = File.ReadAllText(FilePath);
+        string MainOut  = File.ReadAllText(FilePath).Replace("\r", "");
         StringWriter sw = new StringWriter();
 
         // Act
